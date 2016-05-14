@@ -14,9 +14,14 @@ package pnm
 
 import . "github.com/kkdai/pnm/opendata"
 
+//DisplayPet
+type DisplayPet struct {
+	Pet
+}
+
 //Pets :All pet related API
 type Pets struct {
-	allPets    []Pet
+	allPets    []DisplayPet
 	queryIndex int
 }
 
@@ -28,7 +33,7 @@ func NewPets() *Pets {
 }
 
 //GetNextPet :
-func (p *Pets) GetNextPet() *Pet {
+func (p *Pets) GetNextPet() *DisplayPet {
 	if len(p.allPets) == 0 {
 		p.getPets()
 	}
@@ -38,7 +43,7 @@ func (p *Pets) GetNextPet() *Pet {
 }
 
 //GetPreviousPet :
-func (p *Pets) GetPreviousPet() *Pet {
+func (p *Pets) GetPreviousPet() *DisplayPet {
 	if len(p.allPets) == 0 {
 		p.getPets()
 	}
@@ -48,12 +53,12 @@ func (p *Pets) GetPreviousPet() *Pet {
 }
 
 //GetNextDog :
-func (p *Pets) GetNextDog() *Pet {
+func (p *Pets) GetNextDog() *DisplayPet {
 	if len(p.allPets) == 0 {
 		p.getPets()
 	}
 
-	var retPet *Pet
+	var retPet *DisplayPet
 	for {
 		retPet = &p.allPets[p.getNextIndex()]
 		if retPet.PetType() == Dog {
@@ -65,12 +70,12 @@ func (p *Pets) GetNextDog() *Pet {
 }
 
 //GetNextCat :
-func (p *Pets) GetNextCat() *Pet {
+func (p *Pets) GetNextCat() *DisplayPet {
 	if len(p.allPets) == 0 {
 		p.getPets()
 	}
 
-	var retPet *Pet
+	var retPet *DisplayPet
 	for {
 		retPet = &p.allPets[p.getNextIndex()]
 		if retPet.PetType() == Cat {
@@ -87,7 +92,18 @@ func (p *Pets) GetPetsCount() int {
 
 func (p *Pets) getPets() {
 	db := NewPetDB(AllRegion)
-	p.allPets = db.GetPets()
+	for _, v := range db.GetPets() {
+		var pet DisplayPet
+
+		pet.Name = v.Name
+		pet.Resettlement = v.Resettlement
+		pet.Note = v.Note
+		pet.Phone = v.Phone
+		pet.ImageName = v.ImageName
+		pet.Type = v.Type
+
+		p.allPets = append(p.allPets, pet)
+	}
 }
 
 func (p *Pets) getPreviousIndex() int {

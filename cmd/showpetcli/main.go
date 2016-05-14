@@ -37,7 +37,7 @@ func main() {
 			quit := false
 
 			for !quit {
-				fmt.Print("Show Me Pets> ")
+				fmt.Print("Show Me Pets (n/p/c/d) :>")
 
 				if !scanner.Scan() {
 					break

@@ -1,10 +1,33 @@
 PetNeedMe: Package to get Pet Adoption OpenData from Taiwan
 ==============
 
-[![Join the chat at https://gitter.im/kkdai/LineBotPetNeedMe](https://badges.gitter.im/kkdai/LineBotPetNeedMe.svg)](https://gitter.im/kkdai/LineBotPetNeedMe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/kkdai/PetNeedMe](https://badges.gitter.im/kkdai/PetNeedMe.svg)](https://gitter.im/kkdai/PetNeedMe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
- [![GoDoc](https://godoc.org/github.com/kkdai/LineBotPetNeedMe?status.svg)](https://godoc.org/github.com/kkdai/LineBotPetNeedMe)  [![Build Status](https://travis-ci.org/kkdai/LineBotPetNeedMe.svg?branch=master)](https://travis-ci.org/kkdai/LineBotPetNeedMe)
+ [![GoDoc](https://godoc.org/github.com/kkdai/PetNeedMe?status.svg)](https://godoc.org/github.com/kkdai/PetNeedMe)  [![Build Status](https://travis-ci.org/kkdai/PetNeedMe.svg?branch=master)](https://travis-ci.org/kkdai/PetNeedMe)
 
+A Package to get all Animal Adoption Open Data in every county in Taiwan.
+
+
+A Console program to access Pet Information
+=============
+
+`go get github.com/kkdai/pnm/cmd/showpetcli`
+
+Just run it `show[etcli`
+
+- `n` for next Pet
+- `p` for previous Pet
+- `c` for next Cat
+- `d` for next Dog
+
+
+![](images/showpetcli.png)
+
+Progress
+=============
+
+- Taipei (done)
+- Other Counties (TBD)
 
 
 Data Source:
@@ -16,7 +39,6 @@ Contribution and Issue
 =============
 
 歡迎到 [issue](https://github.com/kkdai/LineBotTaipeiPets/issues) 寫下你的意見，或是一起來幫助我．
-
 
 
 
